@@ -34,7 +34,13 @@ for _ in range(3):
 
 # El usuario tiene 2 intentos para responder correctamente
     for intento in range(2):
-        user_answer = int(input("Respuesta: ")) - 1
+        user_answer = input("Respuesta: ")
+        #Se verifica que el elemento sea un digito y este en el rango de respuesta
+        if not user_answer.isdigit() or int(user_answer) > 4: 
+            print("Respuesta no válida")
+            exit(1)
+        else:
+            user_answer = int(user_answer) - 1
         # Se verifica si la respuesta es correcta
         if user_answer == correct_answers_index[question_index]:
             print("¡Correcto!")
@@ -45,5 +51,6 @@ for _ in range(3):
         print("Incorrecto. La respuesta correcta es:")
         print(answers[question_index]
         [correct_answers_index[question_index]])
+
     # Se imprime un blanco al final de la pregunta
     print()
